@@ -29,6 +29,7 @@ def send_comic_to_telegram(bot, channel_id, comic_data):
 def get_latest_comic_number():
     """Получает номер последнего комикса"""
     response = requests.get('https://xkcd.com/info.0.json', timeout=10)
+    response.raise_for_status()
     return response.json()['num']
 
 
