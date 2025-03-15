@@ -52,8 +52,8 @@ def main():
 
     try:
         bot = telegram.Bot(bot_token)
-        latest = get_latest_comic_number()
-        comic_number = random.randint(first_comic_number, latest)
+        latest_comic_number = get_latest_comic_number()
+        comic_number = random.randint(first_comic_number, latest_comic_number)
         comic_data = download_xkcd_comic(comic_number)
         send_comic_to_telegram(bot, channel_id, comic_data)
         print("✅ Комикс успешно опубликован!")
